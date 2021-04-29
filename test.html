@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>  -->
+     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <input type="number" min="0" id="timework" placeholder="nhập thời gian làm (minutes)"/>
+    <input type="text" id="work" placeholder="nhập công việc"/>
+    <select name="" id="select">
+        <option value="Todo" >To do</option>
+        <option value="Done" >Done</option>
+        <option value="Cancle" >Cancle</option>
+    </select>
+    <button onclick="add()">Thêm</button>
+    <button onclick="check()" >check</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Công Việc</td>
+                <td>Status</td>
+                <td>Time</td>
+            </tr>
+        </thead>
+        <tbody id="table">
+            
+        </tbody>
+    </table>
+    <div id="check"></div>
+    <script language="javascript">
+        setInterval(clock,1000);
+        function clock() {
+            var time = makeTime();
+            document.getElementById("clock").innerHTML = time;
+        }
+        
+        var x =""; 
+        function add(){  
+            var c = +document.getElementById("timework").value;
+            var a = document.getElementById("work").value;
+            var b = document.getElementById("select").value;
+            var time = makeTime(c);
+            x += "<tr><td>"+a+"</td><td>"+b+"</td><td>"+time+"</td></tr>"
+            document.getElementById('table').innerHTML = x;
+            
+        }
+        
+        function makeTime(bonus){
+            var h = (new Date().getUTCHours()+7);
+            var m = new Date().getUTCMinutes();
+            var s = new Date().getUTCSeconds();
+
+            if (bonus) {
+                m = m + bonus;
+                if ( m >= 60) {
+                    var x = "";
+                    x = Math.floor(m/60); // lấy phần nguyên
+                    m = m - x*60; // lấy phần dư
+                    h = h + x;
+                }
+            }
+            // nếu h < 10 thì trả về 0 + h, nếu h> 10 thì trả về h (Chỉnh cho đẹp)
+            h = h < 10 ? "0" +h : h;
+            m = m < 10 ? "0" +m : m;
+            s = s < 10 ? "0" +s : s;
+            return h +":"+m+":"+s;
+        }
+        
+        function check(){
+            var table = document.getElementById("table");
+            
+            for (var i = 0, row; row = table.rows[i]; i++) {
+            //iterate through rows
+            //rows would be accessed using the "row" variable assigned in the for loop
+            var a = [];
+            document.getSelection(i).innerHTML = a.push();
+            document.getElementById("check").innerHTML = a;
+                
+            }
+            // js 
+            // var x = document.querySelectorAll("tbody tr");
+            // for(var i = 0; i <= x.length;i++){
+
+            //      var td = document.getSelection(i).col[2].innerHTML
+            //      document.getElementById("check").innerHTML = td;
+            // }
+
+            //jquery
+            // var x = $('tbody tr');
+            // for (var i = 0; i<x.length;i++ ){
+               
+               
+            // }
+        }
+    </script>
+</body>
+</html>

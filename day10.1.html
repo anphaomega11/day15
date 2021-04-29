@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- chỉ số và >= 0 -->
+    Number: <input type="number" id="number">
+    <!-- dùng để tìm kiếm -->
+    current: <input type="number" id="search">
+    <!-- dùng để swap -->
+    New: <input type="number" id = "newValue">
+    
+
+
+    <!-- nếu nhập 10 cộng tổng từ 0 đến 10 -->
+    <button onclick="caclculator('sum')">Sum</button>
+    
+    <!-- nhập vào current để cho ra giá trị của dãy number nếu k có thì hiển thị k tồn tại -->
+    <button onclick="caclculator('find')">Find</button>
+
+    <!-- đảo ngược mảng được tạo ra bởi dãy số của number -->
+    <button onclick="caclculator('reverse')">Reverse</button>
+
+    <!-- đổi vị trí dãy nghịch đảo theo số thứ tự nhập trong New trong  nếu k có thì hiển thị ra k tồn tại -->
+    <button onclick="caclculator('swap')">Swap</button>
+
+    <!-- chạy hết tất cả -->
+    <button onclick="caclculator('all')">All</button>
+    <!-- xóa hết tất cả -->
+    <button>Clear</button>
+    <br>
+    <h2>result</h2>
+    Sum : <span id="sum_result"></span>
+    <br>
+    Find : <span id="find_result"></span>
+    <br>
+    Reverse : <span id="reverse_result"></span>
+    <br>
+    Swap : <span id="swap_result"></span>
+    
+    <script>
+        
+        //calculator điều hướng các sự kiện khi bấm button
+        function caclculator (action){
+            //dùng switch thay cho if else
+            switch(action){
+                case 'sum':
+                break;
+                case 'find':
+                break;
+                case 'reverse':
+                break;
+                case 'swap':
+                break;
+                default :
+                break;
+            }
+        }
+        //make value xử lý các yêu cầu khi đã được điều hướng
+        // function makeValue (action,number,search,newValue){
+        //     var arr = makearray(number);
+        //     switch(action){
+        //         case 'Sum':
+        //         case 'Find':
+        //         case 'Reverse':
+        //         case 'Swap':
+        //     }
+        // }
+        //tạo mảng
+        // function makearray(number) /* tạo function makearray với giá trị number = id input number*/{
+        //     var arr = [];
+        //     for(var i = 0; i<= number;i++){
+        //         arr.push(i);
+        //     }
+        //     return arr;
+        // }
+        // //Sum có thể dùng reduce
+        function sum(){
+            var nb = document.getElementById("number").value;
+            var sum = 0;
+            for(var a = 0;a<=nb;a++){  
+                sum = sum + a;
+            }
+            document.getElementById("sum_result").innerHTML=sum;
+        }
+        // //find    
+        function search(){
+            var search = document.getElementById("search").value;
+            var nb = document.getElementById("number").value;
+            var arr = [];
+                for(var i = 0; i <= nb; i++)	{
+                    arr.push(i);
+                }
+                    
+                var s = arr.indexOf(search);
+                document.getElementById("find_result").innerHTML=s;
+        }
+        // //reverse
+        // function reverse(){
+        //     var nb = document.getElementById("number").value;
+        //     var arr = [];
+        //     for(var i = 0; i <= nb; i++)	{
+        //             arr.push(i);
+        //         }
+        //     arr.reverse();
+        //     document.getElementById("reverse_result").innerText=arr;
+        // }
+        // //swap
+        // function swap(){
+        //     var n = document.getElementById("new").value;
+        //     var nb = document.getElementById("number").value;
+        //     var arr = [];
+        //     for(var i = 0; i <= nb; i++)	{
+        //             arr.push(i);
+        //         }
+            
+        // }
+    </script>
+</body>
+<!-- tìm hiểu SOLID, DRY -->
+</html>

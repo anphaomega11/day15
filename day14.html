@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- C (Create);
+    R (Read);
+    U (update);
+    D (Delete);
+    Git - system
+        1. Origin - gốc sever
+        2. comflict
+        3. push -đẩy     - checkin 
+        4. pull - đưa về
+        5. fetch - làm mơí
+        6. revert - hoàn tác
+        7. reset - xóa
+        8. commit - bản nháp - stage 
+        9. brach - nhánh - check out 
+        10. merge - gộp 
+        10 đồng bộ
+    Json
+        {
+            key: value;
+            (vd)
+            name: 'Hieu';
+            number: 1;
+            arr[];
+        } -->
+        <div id="result"></div> 
+    <script>
+        // var person = {
+        //     name: 'Hieu',
+        //     age: 18,
+        //     adress: 'T3H',
+        //     sublects: ['toán', 'văn', 'sử', 'dia'],
+        //     print: function(){
+        //         return 'hihi';
+        //     },
+        //     pets: {
+        //         type:{
+        //             name: 'cat',
+        //             foot: 4
+        //         }
+        //     }
+        // };
+        // console.log(person["name"],person["age"]);
+
+        // function person(name, age, adress){
+        //     this.ten=name;
+        //     this.tuoi=age;
+        //     this.diachi=adress;
+        // }
+        // var an=new person('Phạm Hoàng Ân', 20, 'Cổ Nhuế');
+        // console.log(an);
+        // var person="(name: 'An')";
+        // var Json(person);
+        // var person={
+        //     name: 'hieu',
+        //     status: 'done',
+        //     time: '17:14:17'
+        // }
+        // console.log(localStorage.getItem('Baitap'));
+
+
+    // function school(Name, Address, Class){
+    //     this.ten=Name;
+    //     this.diachi=Address;
+    //     this.lop=Class;
+    
+    // }
+    // var Hieu=new school  
+      
+    var school={
+        name: 't3h',
+        address: 'ho tungmau',
+        class:[{
+            name:'Lop 1',
+            room:'Lop 1',
+            total:'40',
+            students:[{
+                name:'Đỗ Thành',
+                age:'18',
+                cocc: function(){
+                    var arr=['Hoàng Ân','Hoàng Hiêu'];
+                    return arr.toString();
+                }
+            }]
+        },
+        {
+            name:'Lop 2',
+            room:'Lop 2',
+            total:'40',
+            students:[{
+                name:'Đỗ Thành',
+                age:'18',
+                cocc: function(){
+                    var arr=['Hoàng Ân','Hoàng Hiêu'];
+                    return arr.toString();
+                }
+            }]
+        }
+    ]
+        
+    }
+    // sessionStorage.setItem('LJAVA2102', JSON.stringify(school));
+    var object=JSON.parse(sessionStorage.getItem('LJAVA2102'));
+     
+    var hs="";
+    for(var i=0; i<object.class.length;i++){
+        hs += "</p>"
+        for (var j=0; j<object.class[i].students.length; j++){
+            console.log(object.class[i].students[j]);
+            hs += object.class[i].students[j].cocc() + '-' + object[i].st;
+        }
+        hs += "</p>"
+    }    
+    document.getElementById('result').innerHTML=hs;
+    </script>    
+</body>
+</html>

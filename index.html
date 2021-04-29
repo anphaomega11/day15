@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .working{
+            background-color: yellow; color: yellow;
+        }
+        .success{
+            background-color: green; color: green;
+        }
+        .fail{
+            background-color: red; color: red;
+        }
+    </style>
+</head>
+<body>
+    <input id="name-work" type="text">
+    <select id="status-work">
+        <option value="1" selected>Working</option>
+        <option value="2">Success</option>
+        <option value="3">Fail</option>
+    </select>
+    <button onclick="onAddData()">Add</button>
+    <div style="margin-top: 10px;">
+        <span id="my-clock"></span>
+    </div>
+    <table border="1px" style="border-collapse: collapse; width: 50%; margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>Work</th>
+                <th>Status</th>
+                <th>Time</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody id="content-tbody">
+            <!-- <tr>
+                <td>Learn Java</td>
+                <td>Working</td>
+                <td>13:29:34</td>
+                <td class="working">
+                   
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+    <script>
+        // hàm hiển thị đồng hồ
+        let arrayData =[];
+        function showTime(){
+            let timeString = showClock();
+            document.getElementById("my-clock").innerHTML = timeString;
+            cronJob();
+        }
+        function showClock(time){
+            let _time ;
+            if(time){
+                _time = new Date(time) ;
+            }else {
+                _time = new Date();
+            }
+            var h = _time.getHours();
+            var m = _time.getMinutes();
+            var s = _time.getSeconds();
+            h = (h<10) ? "0"+h:h;
+            m = (m<10) ? "0"+m:m;
+            s = (s<10) ? "0"+s:s;
+            var result = h+":"+m+":"+s;
+            return result ;
+        }
+        showTime();
+        function onAddData (){
+            let nameWork = document.getElementById("name-work").value;
+            let  statusWork = document.getElementById("status-work").value;
+            let timeWork = Date.now();
+            arrayData.push({
+                name:nameWork,
+                status:statusWork,
+                time:timeWork+60*1000
+            })
+            showData();
+        }
+        function showData(){
+            let resultData = arrayData.map((item)=>{
+                return `<tr>
+                            <td>${item.name}</td>
+                            <td>${item.status=="1"?"Working":item.status=="2"?"Success":"Fail"}</td>
+                            <td>${showClock(item.time)}</td>
+                            <td  class ="${item.status=="1"?"working":item.status=="2"?"success":"fail"}">
+                            </td>
+                        </tr>`;
+            })
+            let data = resultData.join("");
+            document.getElementById("content-tbody").innerHTML = data;
+        }
+        function cronJob(){
+            let arrayCheck = arrayData.map((item)=>{
+                let time = Date.now();
+                if(item.time<=time){
+                    item.status="2";
+                }
+                return item
+            })
+            arrayData = arrayCheck ;
+            showData();
+        }
+        setInterval(showTime, 1000);
+    </script>
+</body>
+</html>

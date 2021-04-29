@@ -1,0 +1,113 @@
+
+
+.khoi11{
+    display: flex;
+    flex-direction: row;
+    
+    
+    height: 30px;
+    margin-top: 20px;
+    column-gap: 40px;
+    
+   
+}
+
+
+    .sdt{
+        display: flex;
+        flex-direction: row;
+       column-gap: 1px;
+        
+    }
+        .logo{
+           float: left;
+           
+           
+        }
+        .nd{
+           height: 30px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+          .call{
+            flex-grow: inherit;
+            color: mediumspringgreen;
+            font-size: 15px;
+            
+          } 
+          .callsdt{
+            
+            font-size: 15px;
+            font-weight: bolder;
+            flex-grow: inherit;
+          }
+            
+    .email{
+        display: flex;
+        flex-direction: row;
+       column-gap: 5px;
+        
+    }
+
+   
+.khoi12{
+   align-self:center;
+  
+   width: 40%;
+   justify-content: space-around;
+   margin-left: 130px;
+ }
+
+.clock{
+    text-align: right;
+}
+
+.khoi13{
+    display: flex;
+    flex-direction: row;
+    
+    margin-top: 20px;
+    height: 30px;
+    
+    column-gap: 40px;
+}
+
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  list-style: none;
+  color: black;
+  padding: 0px;
+  font-weight: bolder;
+  font-size: 13px;
+}  
+
+.khoi22{
+  width: 150px;
+  background-color: white;
+  
+}
+
+.request{
+  color: white;
+  font-size: 15px;
+  background-color: blue;
+  width: 140px;
+  height: 30px;
+  border-radius: 50px;
+  justify-content: flex-end;
+  
+}
+
+.class1{
+  background-color: violet;
+}
+.class2{
+  background-color: yellow;
+}
+.class3{
+  background-color: red;
+}

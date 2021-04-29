@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input  id="ho"/>
+    <input  id="ten"/>
+    <button onclick="add()">Thêm</button>
+    <br>
+    <br>
+    <table border="2" >
+        <thead>
+            <tr>
+                <td >Họ</td>
+                <td >Tên</td>
+            </tr>
+        </thead>
+        <tbody id="them">
+            <tr>
+                <td ></td>
+                <td ></td>
+            </tr>
+            
+        </tbody>
+        
+    </table>
+    
+    
+    <script>
+        var dulieu="";
+        function add(){
+            var ho = document.getElementById("ho").value;
+            var ten = document.getElementById("ten").value;
+            dulieu= dulieu + "<tr><td>" + ho + "</td><td>" +ten + "</td></tr>";
+            document.getElementById("them").innerHTML=dulieu;
+       
+        }
+        
+    </script>
+    <div></div>
+</body>
+</html>

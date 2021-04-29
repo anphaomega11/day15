@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+    <title>Time Color</title>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <input type="number" min="0" id="timework" placeholder="nhập thời gian làm (minutes)"/>
+    <input type="text" id="work" placeholder="nhập công việc"/>
+    <select name="" id="select">
+        <option value="Todo" >To do</option>
+        <option value="Done" >Done</option>
+        <option value="Cancel" >Cancel</option>
+    </select>
+    <button onclick="add()">Thêm</button>
+    <button onclick="myStopFunction()" >Stop SetInterval</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Công Việc</td>
+                <td>Status</td>
+                <td>Time</td>
+            </tr>
+        </thead>
+        <tbody id="table">
+            
+        </tbody>
+    </table>
+    
+    <script language="javascript">
+        var myVar = setInterval(clock,1000);
+        function clock() {
+            var time = makeTime();
+            check();
+            document.getElementById('clock').innerHTML = time;
+
+        }
+        function myStopFunction() {
+            clearInterval(myVar);
+        }
+        var globalsIndex = 0;
+        var x =""; 
+        function add(){
+            
+            var c = +document.getElementById("timework").value;
+            var a = document.getElementById("work").value;
+            var b = document.getElementById("select").value;
+            var time = makeTime(c);
+            x += "<tr><td>"+a+"</td><td >"+b+"</td><td id='"+globalsIndex+"'>"+time+"</td></tr>";
+            document.getElementById('table').innerHTML = x;
+            // id mỗi td tăng lên 1 (trong bài này chưa cần dùng đến)
+            globalsIndex = globalsIndex +1;
+        }
+        
+        function makeTime(bonus){
+            var h = (new Date().getUTCHours()+7);
+            var m = new Date().getUTCMinutes();
+            var s = new Date().getUTCSeconds();
+
+            if (bonus) {
+                m = m + bonus;
+                if ( m >= 60) {
+                    var x = "";
+                    x = Math.floor(m/60); // lấy phần nguyên
+                    m = m - x*60; // lấy phần dư
+                    h = h + x;
+                    if(h >= 24){
+                        h = h - 24;
+                    }
+                }
+            }
+            // nếu h < 10 thì trả về 0 + h, nếu h> 10 thì trả về h (Chỉnh cho đẹp)
+            h = h < 10 ? "0" +h : h;
+            m = m < 10 ? "0" +m : m;
+            s = s < 10 ? "0" +s : s;
+            return h +":"+m+":"+s;
+        }
+        
+        function check(){
+            //js
+            // debugger;
+            // var abc = [];
+            // abc = document.querySelectorAll("tbody tr");
+            // abc.forEach(function(r){
+            //     debugger;
+            //     var arr = [];
+            //     arr = r.innerText;
+            //     var c = arr[7];
+            //     document.getElementById("check").innerText = c;
+            // })
+
+
+            var status = [];
+            status = document.querySelectorAll("tbody tr td:nth-child(2)");
+            status.forEach(function(st){
+                
+                debugger;
+                var a = st.innerText;
+                if (a == "Done"){
+                    // hóa xanh
+                    //document.getElementById("check").style.color = "green";
+                    st.bgColor = "green";
+                } else if ( a == "Cancel"){
+                    //hóa đỏ
+                    //document.getElementById("check").style.color = "red";
+                    st.bgColor = "red";
+                } else{
+                    var time = [];
+
+                    time = document.querySelectorAll("tbody tr td:nth-child(3)"); // lấy td tại vị trí thứ 3 trong từng hàng tr
+                    time.forEach(function(t) { // với mỗi td nó sẽ chạy function 
+                        debugger;
+                        var x = t.innerText; 
+                        // document.getElementById("check").innerText = x;
+                        var splits = x.split(':', 3) //danh sách 3 text sau dấu 2 chấm
+                        
+                        if (splits[0] > (new Date().getUTCHours()+7)) { // giờ trong công việc > giờ hiện tại => xanh
+                            //document.getElementById("check").style.color = "green";
+                            st.bgColor = "green";
+                        } else if(splits[1] >= (new Date().getUTCMinutes())) { // phút trong công việc > phút hiện tại => xanh
+                            //document.getElementById("check").style.color = "green";
+                            st.bgColor = "green";
+                        } else { // giờ phút hiện tại > giờ phút trong công việc <=> quá thời gian => red
+                            //document.getElementById("check").style.color = "red";
+                            st.bgColor = "red";
+                        }
+                       
+                    });
+                    
+                }
+            });
+        }
+    </script>
+</body>
+</html>

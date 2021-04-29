@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive</title>
+</head>
+<style>
+    body {
+        margin: 15px;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .square {
+        padding-top: 70px; /*thụt xuống 70px*/
+        display: flex;
+    }
+
+    .square-detail {
+        height: 30px;
+        width: 30px;
+        background-color: black;
+        display: flex;
+        border-radius: 50%; /*chỉnh tròn điều kiện white height = nhau*/
+        justify-content: flex-end;
+    }
+
+    h1 {
+        text-transform: uppercase; /* chữ in hoa*/
+        /*font-style: italic;*/
+        font-size: 400%;
+        margin: 0px;
+    }
+
+    .body {
+        display: flex;
+    }
+    .btn{
+        margin-top: 50px;
+        
+    }
+    .btn-default{
+        height: 45px;
+        width: 175px;
+        font-weight: bold; /*bôi đậm chữ*/
+        transition: all 5s ease-in-out;
+        background-color: blue;
+    }
+    .btn-default:hover{
+        width: 100%;
+        background-color: brown;
+        color: aliceblue;
+    }
+    .video{
+            margin-left: 80px;
+            height: 550px;
+            max-width: 400px;
+        }
+
+    /*Small Mobile*/
+    @media (max-width: 576px) {
+        .square-detail{
+            background-color: rgb(238, 255, 0);
+        }
+        body{
+            background-color: black;
+            color: aliceblue;
+        }
+        .video{
+            display: none;
+        }
+
+    }
+
+    /*Large Mobile*/
+    @media (min-width: 576px) {
+        .square-detail{
+            background-color: rgb(12, 8, 248);
+        }
+        body{
+            background-color: black;
+            color: aliceblue;
+        }
+        
+    }
+
+    /*Ipad*/
+    @media (min-width: 768px) {
+        .square-detail{
+            background-color: rgb(13, 255, 85);
+        }
+        body{
+            background-color: aliceblue;
+            color: black;
+        }
+    }
+
+    /*Ipad Pro*/
+    @media (min-width: 992px) {
+        .square-detail{
+            background-color: rgb(245, 7, 7);
+        }
+        body{
+            background-color: aliceblue;
+            color: black;
+        }
+    }
+
+    /*Laptop*/
+    @media (min-width: 1100px) {
+        .square-detail{
+            background-color: rgb(81, 255, 0);
+        }
+        body{
+            background-color: aliceblue;
+            color: black;
+        }
+    }
+  
+</style>
+
+<body>
+    <div class="title">
+        <div>
+            ***Design***
+        </div>
+    </div>
+    <div class="body">
+        <!--body-->
+        <div>
+            <!-- 3 dấu chấm -->
+            <div class="square">
+                <div class="square-detail" style="opacity: 1;"></div>
+                <div class="square-detail" style="opacity: 0.6;"></div>
+                <div class="square-detail" style="opacity: 0.3;"></div>
+            </div>
+            <!-- tiêu đề -->
+            <div>
+                <h1>break your limit to get high exp.</h1>
+            </div>
+            <!-- nội dung -->
+            <div>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Repellendus porro assumenda adipisci ipsum quis veniam placeat,
+                aliquid esse? Saepe at facilis quaerat, consectetur nemo earum facere perferendis dolorem quae enim
+                quasi distinctio vel amet aperiam? Tempora laudantium vero sed 
+                cupiditate aspernatur rem modi accusamus, optio pariatur,
+                hic quia ipsum doloribus debitis inventore soluta, consequuntur dicta.
+                Eaque provident et quidem architecto labore cum est mollitia quis eligendi veniam
+                esse voluptates pariatur distinctio, non earum, in nemo dignissimos sunt! Vel, 
+                doloribus alias. Dolorem unde quibusdam minus aspernatur est corrupti adipisci amet mollitia, 
+                maiores consequuntur in enim nihil maxime blanditiis provident, ea saepe.
+            </div>
+            <div class="btn">
+                <!-- nút -->
+                <button class="btn-default">
+                    Discovery Now
+                </button>
+            </div>
+        </div>
+        <div>
+            <video class="video" controls>
+                <source src = "video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</body>
+
+</html>

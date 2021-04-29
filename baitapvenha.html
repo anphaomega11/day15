@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <input id="tennhiemvu" type="text">
+    
+    <select id="trangthai">
+        <option value="Todo" >Todo</option>
+        <option value="Done" >Done</option>
+        <option value="Cancel" >Cancel</option>
+    </select>
+    <input type="number" min="0" id="thoigian"/>
+    <!-- <input id="thoigian" type="time"> -->
+    <button onclick="add()">Thêm</button>
+    <button onclick="compare()">So sánh</button> 
+    <br>
+    <table border="2" >
+        <thead>
+            <tr>
+                <td >Công việc</td>
+                <td >Nhiệm vụ</td>
+                <td>Thời gian</td>
+            </tr>
+        </thead>
+        <tbody id="them">
+            <tr>
+                <td></td>
+                <td id="valu"></td>
+                <td></td>
+                <td></td>
+                <td id="a"></td>
+            </tr>  
+        </tbody>   
+    </table>
+    
+    <script language="javascript">
+        
+        setInterval(clock,1000);
+        function clock() {
+            var time = makeTime();
+            document.getElementById("clock").innerHTML = time;
+        }
+        var dulieu = "";
+        
+        function add(){
+            var element = document.getElementById("valu");
+            var tennhiemvu = document.getElementById("tennhiemvu").value;
+            var trangthai = document.getElementById("trangthai").value;
+            var newtime = +document.getElementById("thoigian").value;
+            var time = makeTime(newtime);
+            var time1 = time.split(" ");
+            var t = makeTime();
+            dulieu = dulieu + "<tr><td>" + tennhiemvu + "</td><td>" +trangthai + "</td><td>"+ time + "</td><td>"+ time1 + "</td> </tr>" ;
+            document.getElementById("them").innerHTML=dulieu;
+
+        }
+        
+        function compare(){
+            var element = document.getElementById("valu");
+            var newtime = +document.getElementById("thoigian").value; 
+            var time = makeTime(newtime);
+            var t = makeTime();
+            var time1 = time.split(" ");
+            var time2 = t.split(" ");
+            document.getElementById("a").innerHTML=time1;
+            if (eval(time1[1]) > eval(time2[1])){
+                element.style.backgroundColor='rgb(224,224,224)';
+            }
+            // if ( element===Todo){
+            //     element.style.backgroundColor= 'rgb(224,224,224)';
+            // }
+        }    
+            
+        function makeTime(bonus){
+            var today = new Date();
+            var hours =  (today.getUTCHours()+7);
+            var minutes = today.getUTCMinutes();
+            var seconds = today.getUTCSeconds();
+            if (bonus) {
+                minutes = minutes + bonus;
+                if ( minutes >= 60) {
+                    var x = "";
+                    x = Math.floor(minutes/60); 
+                    minutes = minutes - x*60;
+                    hours = hours + x;
+                }
+            }
+               
+            return hours + ":" + minutes + ":" + seconds;
+        
+        }
+        
+        
+        
+    </script>
+</body>
+</html>

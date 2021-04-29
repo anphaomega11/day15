@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var options = "";
+        for(var i = 1800; i <= 2021; i++){
+            options=options + "<option>"+i+"</option>";
+        }
+        document.getElementById("listYears").innerHTML=options;
+    </script>
+    <select id="listYears">
+        
+    </select>
+    <br>
+    <button>Thêm Mới</button>
+    <button>Cập Nhật</button>
+    <button>Xóa</button>
+    cần tìm hiểu query selecter , query selecter all
+    var - no scope , let - scope , const - block scope
+    String : "chữ"
+    number : số
+    boolean : True - false 
+    array : [ ]array mảng
+    object : ... 
+    Loop (vòng lặp) : for, each, while
+    splice, subString, Random, Lowercase,.... 
+    Prototype : khuôn mẫu (người) chỉ khác nhau tên,quê,...... 
+    json : là 1 kiểu dữ liệu (tìm hiểu tiếp)
+    <hr>
+    theo id : var element = document.getElementById('idname');
+    lấy giá trị: document.write(element.value);
+    <a href="testday8.html">ví dụ</a>
+    theo thẻ html : var element = document.getElementsByTagName('input');
+    theo class : var element = document.getElementsByClassName('input');
+    lấy giá trị thẻ : document.write(element[0].value); (số 0 là thứ tự của thẻ được gọi đến) 
+    <a href="testday8.html">Ví Dụ</a>
+    <hr>
+    Tìm thẻ HTML theo cú pháp của Selector
+    <a href="testday8.html">Ví Dụ</a>
+    <hr>
+    bắt sự kiện onclick 
+    <a href="testday8.html">Ví Dụ</a>
+    <hr>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="TranbaTuan" id="website" />
+    
+    <script language="javascript">
+      // Lấy thẻ input
+      var element = document.getElementById('website');
+      
+      // Lấy giá trị của thẻ input
+      document.write(element.value);
+    </script>
+
+    <hr>
+    test về thứ tự thẻ document.write(element[1].value);
+    <input type="text" value="Thẻ không cần lấy" class="website"/>
+    <input type="text" value="Trần Bá Tuấn" class="website"/>
+    
+    <script language="javascript">
+      // Lấy thẻ input
+      var element = document.getElementsByClassName('website');
+      
+      // Lấy giá trị của thẻ input
+      document.write(element[1].value);
+    </script>
+    <hr>
+    test về selecter 
+    <input type="text" value="thẻ không cần lấy" class="website"/>
+    <div>
+      	<input type="text" value="Thẻ Cần Lấy" class="website"/>
+        <input type="text" value="thẻ không cần lấy"/>
+    </div>
+    <script language="javascript">
+      // Lấy thẻ input
+      var element = document.querySelectorAll("div input.website"); //tên thẻ cha => tên thẻ chứa => tên class
+      
+      // Lấy giá trị của thẻ input
+      document.write('<h3>Nội dung thẻ cần lấy là: ' + element[0].value + '</h3>');
+    </script>
+    <hr>
+    test về onclick
+    <button onclick="hello()">Xin chào</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function hello(){
+            var name = "Trần Bá Tuấn";
+            var year = 1999;
+            var str = "Tôi tên: " + name + " sinh năm: " + year;
+            document.getElementById("demo").innerHTML = str;
+        }
+    </script>
+</body>
+</html>

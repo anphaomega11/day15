@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="day10.js"></script>
+</head>
+<body>
+    <!-- tạo 1 ô input number, ko nhập ký tự tạo nút sum khi ấn thì hiển thị kq cộng từ 1 đến number -->
+    <table >
+        <thead>
+            <tr>
+                <td>Number</td>
+                <td>Current</td>
+                <td>New</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input id="number" type="number">
+                </td>
+                <td>
+                    <input id="current" type="number">
+                </td>
+                <td>
+                    <input  id="newValue" type="number">
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td><button onclick="add()">SUM</button></td>
+            <td><button onclick="find()">FIND</button></td>
+            <td><button onclick="revere()">REVERE</button></td>
+            <td><button onclick="swap()">SWAP</button></td>
+            <td><button onclick="all(add(), find(), revere(), swap())">ALL</button></td>
+            <td><button onclick="document.getElementById('number').value=''
+                                        document.getElementById('current').value=''
+                                        document.getElementById('newValue').value=''">CLEAR</button></td>
+        </tfoot>
+    </table>
+    <br>
+    <h2>Result</h5>
+    <div>
+        <ol>
+            <li>Sum là: <b id="so"></b></li>
+            <li>Find là: <b id="hienthi"></b></li>
+            <li>Reverse là: <b id="timso"></b></li>
+            <li>Swap là: <b id="swap_result"></b></li>
+            <li>Chuoi dao lai la: <b id="daoso"></b></li>
+        </ol>
+    </div>
+
+    <!-- timf hieu SOLID, DRY -->
+</body>
+</html>
